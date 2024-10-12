@@ -1,0 +1,24 @@
+*{
+   
+    box-sizing: border-box;
+
+}
+.container{
+    margin:auto;
+    padding : 30px;
+
+}
+sup , p{
+    color: red;
+}
+
+.input-group-append {
+    cursor: pointer;
+  }
+
+  label{
+    font-size: medium;
+  }
+
+
+

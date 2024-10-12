@@ -1,0 +1,100 @@
+
+
+<div class="container">
+    <div class="header">
+        <h1 style="text-align: center;" mat-dialog-titl>{{data ? 'Edit Task' : 'New Task'}}</h1>
+    </div >
+    <div ><hr class="solid"></div>
+
+    <br>
+
+    <form  [formGroup]="newTask" (ngSubmit)="onSubmit()">
+    <!-- 2 column grid layout with text inputs for the Assigneto ans Status-->
+    <div class="row mb-4 ">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+         <label class="form-label" for="form6Example1"><sup>*</sup>Assigned To</label>
+          <select class="form-select" formControlName="assignedTo">
+            <option value="" disabled selected>Select User</option>
+            <option value="User 1">User 1</option>
+            <option value="User 2">User 2</option>
+            <option value="User 3">User 3</option>
+            <option value="User 4">User 4</option>
+            <option value="User 5">User 5</option>
+            <option value="User 6">User 6</option>
+            <option value="User 7">User 7</option>
+            <option value="User 8">User 8</option>
+            <option value="User 9">User 9</option>
+            <option value="User 10">User 10</option>
+          </select> 
+          <p *ngIf="newTask.controls.assignedTo.hasError('required') && newTask.get('assignedTo').touched ">Assigned To is Required </p> 
+        </div>
+      </div>
+      <div class="col">
+            <label class="form-label" for="form6Example1"><sup>*</sup>Status</label>
+             <select class="form-select" formControlName="status">
+              <option value="" disabled selected>Select Status</option>
+                <option value="Not Started">Not Started</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+             </select>  
+             <p *ngIf="newTask.controls.status.hasError('required') && newTask.get('status').touched ">Status is Required </p> 
+           </div>
+    </div>
+
+
+    <div class="row mb-4 ">
+
+
+        <div class="col">
+            <label class="form-label" for="form6Example1">Due Date</label>
+            <div class="input-group date " id="datepicker">
+              <input type="date" class="form-control" id="date" formControlName="dueDate" />
+              <!-- <span class="input-group-append" >
+                <span class="input-group-text bg-light d-block">
+                    <i class="fa fa-calendar" ></i>
+                </span>
+              </span> -->
+            </div> 
+          </div>
+
+        
+        <div class="col">
+         
+              <label class="form-label" for="form6Example1"><sup>*</sup>Priority</label>
+     
+               <select class="form-select " formControlName="priority">
+                <option value="" disabled selected>Select Priority</option>
+                 <option value="Low">Low</option>
+                 <option value="Normal">Normal</option>
+                 <option value="High">High</option>
+               </select>
+               <p *ngIf="newTask.controls.priority.hasError('required') && newTask.get('priority').touched ">Priority is Required </p> 
+               
+             </div>
+      </div>
+
+   
+    <!-- Message input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="form6Example7"  >Description</label>
+      <textarea class="form-control" id="form6Example7" rows="4" formControlName="description"></textarea>
+      
+    </div>
+    
+  <div style="margin-bottom:20px;"></div>
+    <hr>
+    <!-- Submit button -->
+    
+   
+    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button type="button" class="btn btn-warning" (click)="cancle()">Cancle</button>
+        <button type="submit" class="btn btn-outline-success" style="background-color: rgb(76, 123, 76); color: white;">{{data ? 'Update' : 'Save'}}</button>
+    </div>
+
+    
+  
+  </form>
+ 
+
+</div>
